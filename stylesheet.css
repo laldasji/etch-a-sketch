@@ -146,6 +146,7 @@ body
     width: 80svh;
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     background-color: var(--baby-powder);
     box-shadow: 1rem 1rem black;
 }
@@ -153,4 +154,5 @@ body
 .checkBox
 {
     background-color: var(--baby-powder);
+    aspect-ratio: 1;
 }

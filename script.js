@@ -1,4 +1,3 @@
-const board = document.querySelector("#board");
 const oilPaintButton = document.querySelector("#oilPaint");
 const monochromeButton = document.querySelector("#monochrome");
 const randomButton = document.querySelector("#random");
@@ -10,18 +9,19 @@ const darkenButton = document.querySelector("#darken");
 
 let boardDimension = 16;
 let dimension = 100 / boardDimension;
+const board = document.querySelector("#board");
 
 function initialiseBoard() {
     board.innerHTML = '';
     for (let j = 0; j < boardDimension; j++) {
         const row = document.createElement("div");
-
+        row.style.width = dimension + '%';
+        row.style.height = '100%';
         for (let i = 0; i < boardDimension; i++) {
             const singleBox = document.createElement("div");
             singleBox.style.height = dimension + '%';
-            singleBox.style.aspectRatio = `1`;
             singleBox.classList.add("checkBox");
-            singleBox.opacity = 0;
+            singleBox.style.opacity = 0; // Corrected the property assignment
 
             row.appendChild(singleBox);
         }
