@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-sketch!</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="shortcut icon" href="images/etch-a-sketch.png" type="image/x-icon">
+</head>
+<body>
+    <div id="notSupported">NOT SUPPORTED FOR <br> THE FOLLOWING DIMENSIONS</div>
+    <div id="title">
+        Etch-a-sketch!
+        <hr class="titleUnderline">
+    </div>
+    <div id="optionBar">
+        <div id="optionContainer">
+            <button class='brushButton' id="oilPaint">Oil Brush</button>
+            <button class='brushButton' id="monochrome">Monochrome Brush</button>
+            <button class='brushButton' id="random">Rainbow Brush</button>
+            <button class='brushButton' id="eraseButton">Erase</button>
+            <button class='brushButton' id="clearButton">Clear</button>
+            <input type="range" id="discreteSlider" name="discreteSlider" min="16" max="128" step="16" value="16">
+            <div id="sliderValueTooltip">Canvas Size: 16 x 16</div>
+        </div>
+    </div>
+    <div id="sketchArea">
+        <div id="board"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

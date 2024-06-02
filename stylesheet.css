@@ -1,0 +1,156 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+:root
+{
+    --red-cmyk: rgba(237, 28, 36, 1);
+    --baby-powder: rgba(253, 255, 252, 1);
+    --slate-gray: rgba(125, 132, 145, 1);
+    --eerie-black: rgba(23, 29, 28, 1);
+}
+
+@font-face {
+    font-family: UGLY;
+    src: url('Danfo-Regular-VariableFont_ELSH.ttf');
+}
+
+body
+{
+    height: 100svh;
+    display: flex;
+    flex-direction: row;
+}
+
+#notSupported
+{
+    position: fixed;
+    background-color: var(--baby-powder);
+    width: 100%;
+    height: 100%;
+    display: none;
+    font-size: 5rem;
+    font-family: UGLY;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 999;
+}
+
+@media (max-aspect-ratio: 1.25)
+{
+    #notSupported
+    {
+        display: flex;
+    }
+}
+
+#title
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    font-family: UGLY;
+    color: var(--baby-powder);
+    font-size: 3.25rem;
+}
+
+.titleUnderline
+{
+    width: 90%;
+    background-color: var(--baby-powder);
+    height: 0.5rem;
+    border-radius: 1rem;
+    border: none;
+}
+
+#optionBar
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    flex-basis: 25%;
+    background-color: var(--red-cmyk);
+    max-height: 100svh;
+}
+
+#optionContainer
+{
+    display: flex;
+    border-radius: 1rem;
+    box-shadow: 1rem 1rem black;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50%;
+    max-height: 50%;
+    width: 66%;
+    max-width: 66%;
+    background-color: var(--baby-powder);
+}
+
+.brushButton
+{
+    font-size: 1.25rem;
+    width: 85%;
+    height: 15%;
+    flex-basis: 2;
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--baby-powder);
+    transition-duration: 0.33s;
+}
+
+.brushButton:hover
+{
+    background-color: var(--slate-gray);
+}
+
+#discreteSlider
+{
+    width: 75%;
+    background-color: var(--red-cmyk);
+    flex-basis: 1;
+    accent-color: var(--red-cmyk);
+}
+
+#sliderValueTooltip {
+    flex-basis: 1;
+    background-color: var(--eerie-black);
+    color: var(--baby-powder);
+    width: fit-content;
+    padding: 5px;
+    box-shadow: 0.25rem 0.25rem var(--slate-gray);
+}
+
+#sketchArea
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-basis: 75%;
+    background-color: var(--slate-gray);
+    max-height: 100svh;
+}
+
+#board
+{
+    margin-top: 3.25rem;
+    height: 80svh;
+    width: 80svh;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--baby-powder);
+    box-shadow: 1rem 1rem black;
+}
+
+.checkBox
+{
+    background-color: var(--baby-powder);
+}
