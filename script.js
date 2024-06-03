@@ -4,8 +4,6 @@ const randomButton = document.querySelector("#random");
 const eraseButton = document.querySelector("#eraseButton");
 const clearButton = document.querySelector("#clearButton");
 const dimensionSlider = document.querySelector("#discreteSlider");
-const lightenButton = document.querySelector("#lighten");
-const darkenButton = document.querySelector("#darken");
 
 let boardDimension = 16;
 let dimension = 100 / boardDimension;
@@ -21,7 +19,7 @@ function initialiseBoard() {
             const singleBox = document.createElement("div");
             singleBox.style.height = dimension + '%';
             singleBox.classList.add("checkBox");
-            singleBox.style.opacity = 0; // Corrected the property assignment
+            singleBox.style.opacity = 0;
 
             row.appendChild(singleBox);
         }
@@ -29,13 +27,25 @@ function initialiseBoard() {
     }
 }
 
+function removeAllEventListener(nodeList)
+{
+    nodeList.forEach(element => {
+        let clone = element.cloneNode(true);
+        element.parentNode.replaceChild(clone, element);
+    });
+}
+
 function oilPaintBrush()
 {
+    boxes = document.querySelectorAll(".checkBox");
+    removeAllEventListener(boxes);
     boxes = document.querySelectorAll(".checkBox");
     for (let i = 0; i < boxes.length; i++)
     {
         boxes[i].addEventListener('mouseenter', () => {
-                boxes[i].style.backgroundColor = 'var(--eerie-black)';
+            if (boxes[i].style.backgroundColor != 'var(--eerie-black)')
+                boxes[i].style.opacity = 0.1;
+            boxes[i].style.backgroundColor = 'var(--eerie-black)';
             if (boxes[i].style.opacity < 1)
                 boxes[i].style.opacity = Number(boxes[i].style.opacity) + 0.1;
         });
@@ -44,6 +54,8 @@ function oilPaintBrush()
 
 function monochromeBrush()
 {
+    boxes = document.querySelectorAll(".checkBox");
+    removeAllEventListener(boxes);
     boxes = document.querySelectorAll(".checkBox");
     for (let i = 0; i < boxes.length; i++)
     {
@@ -56,6 +68,8 @@ function monochromeBrush()
 
 function randomBrush()
 {
+    boxes = document.querySelectorAll(".checkBox");
+    removeAllEventListener(boxes);
     boxes = document.querySelectorAll(".checkBox");
     for (let i = 0; i < boxes.length; i++)
     {
@@ -73,6 +87,8 @@ function randomBrush()
 function eraseBrush()
 {
     boxes = document.querySelectorAll(".checkBox");
+    removeAllEventListener(boxes);
+    boxes = document.querySelectorAll(".checkBox");
     for (let i = 0; i < boxes.length; i++)
     {
         boxes[i].addEventListener('mouseenter', () => {
@@ -83,17 +99,14 @@ function eraseBrush()
 }
 
 oilPaintButton.addEventListener('click', () => {
-    initialiseBoard();
     oilPaintBrush();
 });
 
 monochromeButton.addEventListener('click', () => {
-    initialiseBoard();
     monochromeBrush();
 });
 
 randomButton.addEventListener('click', () => {
-    initialiseBoard();
     randomBrush();
 });
 
@@ -127,3 +140,5 @@ dimensionSlider.addEventListener("input", function() {
     var sliderValue = this.value;    
     tooltip.textContent = `Canvas Size: ${sliderValue} x ${sliderValue}`;
 });
+
+initialiseBoard();
