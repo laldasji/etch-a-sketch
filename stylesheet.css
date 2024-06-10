@@ -39,16 +39,9 @@ body
     z-index: 999;
 }
 
-@media (max-aspect-ratio: 1.25)
-{
-    #notSupported
-    {
-        display: flex;
-    }
-}
-
 #title
 {
+    top: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,7 +50,7 @@ body
     text-align: center;
     font-family: UGLY;
     color: var(--baby-powder);
-    font-size: 3.25rem;
+    font-size: 3.125rem;
 }
 
 .titleUnderline
@@ -88,8 +81,7 @@ body
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: 50%;
-    max-height: 50%;
+    height: calc(50%);
     width: 66%;
     max-width: 66%;
     background-color: var(--baby-powder);
@@ -100,7 +92,6 @@ body
     font-size: 1.25rem;
     width: 85%;
     height: 15%;
-    flex-basis: 2;
     border: none;
     border-radius: 1rem;
     background-color: var(--baby-powder);
@@ -120,13 +111,13 @@ body
     accent-color: var(--red-cmyk);
 }
 
-#sliderValueTooltip {
+#sliderValueTooltip
+{
     flex-basis: 1;
     background-color: var(--eerie-black);
     color: var(--baby-powder);
     width: fit-content;
-    padding: 5px;
-    box-shadow: 0.25rem 0.25rem var(--slate-gray);
+    padding: 0.125em;
 }
 
 #sketchArea
@@ -142,8 +133,9 @@ body
 #board
 {
     margin-top: 3.25rem;
-    height: 80svh;
-    width: 80svh;
+    height: calc(70%);
+    width: auto;
+    aspect-ratio: 1;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -155,4 +147,30 @@ body
 {
     background-color: var(--baby-powder);
     aspect-ratio: 1;
+}
+
+@media (max-aspect-ratio: 1)
+{
+    body
+    {
+        flex-direction: column-reverse;
+    }
+    #board
+    {
+        height: calc(56%);
+        box-shadow: 0.5rem 0.5rem black;
+    }
+    #optionContainer
+    {
+        height: calc(90%);
+        box-shadow: 0.5rem 0.5rem 0 black;
+    }
+    .brushButton
+    {
+        font-size: 1rem;
+    }
+    #sliderValueTooltip
+    {
+        padding: 0.0625em;
+    }
 }

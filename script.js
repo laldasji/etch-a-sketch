@@ -42,12 +42,15 @@ function oilPaintBrush()
     boxes = document.querySelectorAll(".checkBox");
     for (let i = 0; i < boxes.length; i++)
     {
-        boxes[i].addEventListener('mouseenter', () => {
-            if (boxes[i].style.backgroundColor != 'var(--eerie-black)')
-                boxes[i].style.opacity = 0.1;
-            boxes[i].style.backgroundColor = 'var(--eerie-black)';
-            if (boxes[i].style.opacity < 1)
-                boxes[i].style.opacity = Number(boxes[i].style.opacity) + 0.1;
+        boxes[i].addEventListener('mouseover', (event) => {
+            if (event.buttons === 1) {
+                event.preventDefault();
+                if (boxes[i].style.backgroundColor != 'var(--eerie-black)')
+                    boxes[i].style.opacity = 0.1;
+                boxes[i].style.backgroundColor = 'var(--eerie-black)';
+                if (boxes[i].style.opacity < 1)
+                    boxes[i].style.opacity = Number(boxes[i].style.opacity) + 0.1;
+            }
         });
     }
 }
@@ -59,9 +62,12 @@ function monochromeBrush()
     boxes = document.querySelectorAll(".checkBox");
     for (let i = 0; i < boxes.length; i++)
     {
-        boxes[i].addEventListener('mouseenter', () => {
-            boxes[i].style.backgroundColor = 'var(--eerie-black)';
-            boxes[i].style.opacity = '1';
+        boxes[i].addEventListener('mouseover', (event) => {
+            if (event.buttons === 1) {
+                event.preventDefault();
+                boxes[i].style.backgroundColor = 'var(--eerie-black)';
+                boxes[i].style.opacity = '1';
+            }
         });
     }
 }
@@ -73,13 +79,16 @@ function randomBrush()
     boxes = document.querySelectorAll(".checkBox");
     for (let i = 0; i < boxes.length; i++)
     {
-        boxes[i].addEventListener('mouseenter', () => {
-            let R = Math.floor(Math.random() * (256 - 0));
-            let G = Math.floor(Math.random() * (256 - 0));
-            let B = Math.floor(Math.random() * (256 - 0));
-            let color = `rgb(${R}, ${G}, ${B})`;
-            boxes[i].style.backgroundColor = color;
-            boxes[i].style.opacity = '1';
+        boxes[i].addEventListener('mouseover', (event) => {
+            if (event.buttons === 1) {
+                event.preventDefault();
+                let R = Math.floor(Math.random() * (256 - 0));
+                let G = Math.floor(Math.random() * (256 - 0));
+                let B = Math.floor(Math.random() * (256 - 0));
+                let color = `rgb(${R}, ${G}, ${B})`;
+                boxes[i].style.backgroundColor = color;
+                boxes[i].style.opacity = '1';
+            }
         });
     }
 }
@@ -91,9 +100,12 @@ function eraseBrush()
     boxes = document.querySelectorAll(".checkBox");
     for (let i = 0; i < boxes.length; i++)
     {
-        boxes[i].addEventListener('mouseenter', () => {
-            boxes[i].style.opacity = 0;
-            boxes[i].style.backgroundColor = 'var(--baby-powder)';
+        boxes[i].addEventListener('mouseover', (event) => {
+            if (event.buttons === 1) {
+                event.preventDefault();
+                boxes[i].style.opacity = 0;
+                boxes[i].style.backgroundColor = 'var(--baby-powder)';
+            }
         });
     }
 }
