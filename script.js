@@ -43,14 +43,12 @@ function oilPaintBrush()
     for (let i = 0; i < boxes.length; i++)
     {
         boxes[i].addEventListener('mouseover', (event) => {
-            if (event.buttons === 1) {
-                event.preventDefault();
-                if (boxes[i].style.backgroundColor != 'var(--eerie-black)')
-                    boxes[i].style.opacity = 0.1;
-                boxes[i].style.backgroundColor = 'var(--eerie-black)';
-                if (boxes[i].style.opacity < 1)
-                    boxes[i].style.opacity = Number(boxes[i].style.opacity) + 0.1;
-            }
+            event.preventDefault();
+            if (boxes[i].style.backgroundColor != 'var(--eerie-black)')
+                boxes[i].style.opacity = 0.1;
+            boxes[i].style.backgroundColor = 'var(--eerie-black)';
+            if (boxes[i].style.opacity < 1)
+                boxes[i].style.opacity = Number(boxes[i].style.opacity) + 0.1;
         });
     }
 }
@@ -63,11 +61,9 @@ function monochromeBrush()
     for (let i = 0; i < boxes.length; i++)
     {
         boxes[i].addEventListener('mouseover', (event) => {
-            if (event.buttons === 1) {
-                event.preventDefault();
-                boxes[i].style.backgroundColor = 'var(--eerie-black)';
-                boxes[i].style.opacity = '1';
-            }
+            event.preventDefault();
+            boxes[i].style.backgroundColor = 'var(--eerie-black)';
+            boxes[i].style.opacity = '1';
         });
     }
 }
@@ -80,15 +76,13 @@ function randomBrush()
     for (let i = 0; i < boxes.length; i++)
     {
         boxes[i].addEventListener('mouseover', (event) => {
-            if (event.buttons === 1) {
-                event.preventDefault();
-                let R = Math.floor(Math.random() * (256 - 0));
-                let G = Math.floor(Math.random() * (256 - 0));
-                let B = Math.floor(Math.random() * (256 - 0));
-                let color = `rgb(${R}, ${G}, ${B})`;
-                boxes[i].style.backgroundColor = color;
-                boxes[i].style.opacity = '1';
-            }
+            event.preventDefault();
+            let R = Math.floor(Math.random() * (256 - 0));
+            let G = Math.floor(Math.random() * (256 - 0));
+            let B = Math.floor(Math.random() * (256 - 0));
+            let color = `rgb(${R}, ${G}, ${B})`;
+            boxes[i].style.backgroundColor = color;
+            boxes[i].style.opacity = '1';
         });
     }
 }
@@ -101,11 +95,9 @@ function eraseBrush()
     for (let i = 0; i < boxes.length; i++)
     {
         boxes[i].addEventListener('mouseover', (event) => {
-            if (event.buttons === 1) {
-                event.preventDefault();
-                boxes[i].style.opacity = 0;
-                boxes[i].style.backgroundColor = 'var(--baby-powder)';
-            }
+            event.preventDefault();
+            boxes[i].style.opacity = 0;
+            boxes[i].style.backgroundColor = 'var(--baby-powder)';
         });
     }
 }
