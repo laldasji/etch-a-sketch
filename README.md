@@ -2,7 +2,7 @@
 
 ## A web implementation of the toy Etch-a-sketch, popularly known as _Magic Sketch_, created following the curriculum of [The Odin Project](https://www.theodinproject.com/) using HTML, CSS and JavaScript
 
-### You can check out the project [here!](https://laldasji.github.io/rock-paper-scissor/)
+### You can check out the project [here!](https://laldasji.github.io/etch-a-sketch/)
 
 ## Features
 - **Oil Brush:** Paint with an oil brush that gradually gets darker with each stroke, creating a textured and layered effect.
